@@ -7,8 +7,11 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-16.04'
+
+variables:
+  GOPATH: '$(system.defaultWorkingDirectory)'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: go install ka.org/sample/app
+  displayName: 'Build'
