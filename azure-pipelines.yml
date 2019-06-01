@@ -15,12 +15,7 @@ variables:
 steps:
 - script: go install ka.org/sample/app
   displayName: 'Build'
-- task: UniversalPackages@0
-  displayName: Universal Publish
+- task: PublishPipelineArtifact@0
   inputs:
-    command: publish
-    publishDirectory: '$(Build.ArtifactStagingDirectory)/bin'
-    vstsFeedPublish: 'go-packages'
-    vstsFeedPackagePublish: 'sample-app'
-    packagePublishDescription: 'sample golang app'
-    versionOption: minor
+    artifactName: 'sample-app'
+    targetPath: 'bin/'
