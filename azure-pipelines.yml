@@ -15,11 +15,11 @@ variables:
 steps:
 - script: go install ka.org/sample/app
   displayName: 'Build'
-- script: |
-    az artifacts universal publish \
-    --organization "https://dev.azure.com/kazakovas90/" \
-    --feed "go-packages" --name "sampe-app" \
-    --version "$(date +%Y%m%d_%H%M%S)" \
-    --description "My description" \
-    --path "./bin"
-  displayName: 'Upload artifacts'
+- task: UniversalPackages@0
+  displayName: Universal Publish
+  inputs:
+    command: publish
+    publishDirectory: '$(Build.ArtifactStagingDirectory)/bin'
+    vstsFeedPublish: 'go-packages'
+    vstsFeedPackagePublish: 'sample-app'
+    packagePublishDescription: 'sample golang app'
