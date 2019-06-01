@@ -15,7 +15,7 @@ variables:
 steps:
 - script: go install ka.org/sample/app
   displayName: 'Build'
-- task: PublishPipelineArtifact@0
+- task: PublishBuildArtifacts@1
   inputs:
     artifactName: 'sample-app'
-    targetPath: 'bin/'
+    pathtoPublish: 'bin/'
