@@ -23,3 +23,4 @@ steps:
     vstsFeedPublish: 'go-packages'
     vstsFeedPackagePublish: 'sample-app'
     packagePublishDescription: 'sample golang app'
+    versionOption: minor
